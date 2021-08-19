@@ -1,7 +1,5 @@
 package io.github.h4iku.examples.chapter2;
 
-import java.util.List;
-
 import spoon.Launcher;
 import spoon.reflect.CtModel;
 import spoon.reflect.declaration.CtMethod;
@@ -17,10 +15,8 @@ public class MethodNamePrinter {
         launcher.addInputResource(FILE_PATH);
         CtModel model = launcher.buildModel();
 
-        List<CtMethod> allMethods = model.getElements(new TypeFilter(CtMethod.class));
-        for (CtMethod ctMethod : allMethods) {
-            System.out.println(ctMethod.getSimpleName());
-        }
+        model.getElements(new TypeFilter<CtMethod<?>>(CtMethod.class))
+                .forEach(method -> System.out.println(method.getSimpleName()));
 
     }
 }
