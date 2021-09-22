@@ -23,7 +23,7 @@ public class CommentReporter {
         launcher.addInputResource(FILE_PATH);
         CtModel model = launcher.buildModel();
 
-        List<CtComment> comments = model.getElements(new TypeFilter<CtComment>(CtComment.class));
+        List<CtComment> comments = model.getElements(new TypeFilter<>(CtComment.class));
 
         // To get orphan comments outside the class
         CtCompilationUnit cu = ((CtType<?>) model.getAllTypes().toArray()[0]).getPosition().getCompilationUnit();
@@ -45,7 +45,7 @@ public class CommentReporter {
 
     private static Set<CtComment> getNonOrphanComments(CtModel model) {
 
-        Set<CtComment> commentsSet = new HashSet<CtComment>();
+        Set<CtComment> commentsSet = new HashSet<>();
         model.getElements(new TypeFilter<>(CtElement.class)).forEach(element -> {
             commentsSet.addAll(element.getComments());
         });

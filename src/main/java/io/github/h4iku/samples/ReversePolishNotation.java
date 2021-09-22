@@ -3,6 +3,7 @@ package io.github.h4iku.samples;
 import java.util.Stack;
 import java.util.stream.Stream;
 
+
 /**
  * A Simple Reverse Polish Notation calculator with memory function.
  */
@@ -14,8 +15,7 @@ public class ReversePolishNotation {
     private double memory = 0;
 
     /**
-     * Takes reverse polish notation style string and returns the resulting
-     * calculation.
+     * Takes reverse polish notation style string and returns the resulting calculation.
      *
      * @param input mathematical expression in the reverse Polish notation format
      * @return the calculation result
@@ -28,7 +28,7 @@ public class ReversePolishNotation {
         Stream.of(tokens).forEach(t -> {
             double a;
             double b;
-            switch (t) {
+            switch(t){
                 case "+":
                     b = numbers.pop();
                     a = numbers.pop();
@@ -71,6 +71,7 @@ public class ReversePolishNotation {
     public void memoryClear() {
         memory = 0;
     }
+
 
     public void memoryStore(double value) {
         memory = value;
